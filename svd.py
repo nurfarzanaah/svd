@@ -22,10 +22,11 @@ import pandas as pd
 # Read the dataset. It consists of two files ('rating.dat', and 'movies.dat')
 data = pd.io.parsers.read_csv('data/ratings.dat',
             names = ['user_id', 'movie_id', 'rating', 'time'],
-            engine = 'python', delimiter = '::')
+            engine = 'python', delimiter = '::',
+            encoding = "windows-1251")
 movie_data = pd.io.parsers.read_csv('data/movies.dat',
     names=['movie_id', 'title', 'genre'],
-    engine='python', delimiter='::')
+    engine='python', delimiter='::', encoding = "windows-1251")
 
 # Create the rating matrix with rows as movies and columns as users
 ratings_mat = np.ndarray(
